@@ -72,4 +72,29 @@ cd /etc/nginx
 # go to config directory of nginx
 # etc is usually where config files go to
 vim nginx.conf
-# edit the config file
+```
+## Create separate server block
+```bash
+# edit the config file if needed
+sudo mkdir sites-available
+sudo mkdir sites-enabled
+# create new directories in ngnix directory
+
+# create a new file in sites-available directory
+cd sites-available
+vim nginx-2420
+# type this:
+server {
+    listen  80;
+    server_name localhost;
+
+    location / {
+        root    /web/html/nginx-2420
+        index   nginx-2420.html
+    }
+}
+# save it
+# create symlink to enable the site
+sudo ln -s /etc/nginx/sites-available/example.conf /etc/nginx/sites-enabled/nginx-2420
+sudo systemctl restart nginx
+# restart nginx to enable the changes to the site's configuration
