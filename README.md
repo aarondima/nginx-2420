@@ -6,3 +6,70 @@ mkdir -p /web/html/nginx-2420
 # the p option allows to create parent directories
 # if they don't exist
 ```
+## Install software
+```bash
+sudo pacman -S vim nginx
+# pacman is the installation manager for arch
+# use it to install vim and nginx
+# the -S option install it
+# use sudo to execute commands that need authorization
+```
+## Start nginx
+```bash
+sudo systemctl start nginx
+# systemctl manages services
+# start starts the service
+sudo systemctl status nginx
+# checks the status of the service
+sudo systemctl enable nginx
+# creates a link to the service to start on boot up
+```
+## Create document to serve
+```bash
+cd /web/html/nginx-2420
+# use cd to go to the directory
+vim nginx-2420
+# use vim to create and edit the file
+```
+## Copy this to vim
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2420</title>
+    <style>
+        * {
+            color: #db4b4b;
+            background: #16161e;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>All your base are belong to us</h1>
+</body>
+</html>
+```
+## Save the file
+Press esc and type `:wq` to save and exit 
+## Edit the nginx config file
+```bash
+cd
+# use cd to go back to the home directory
+cd /etc/nginx
+# go to config directory of nginx
+# etc is usually where config files go to
+vim nginx.conf
+# edit the config file
