@@ -96,5 +96,9 @@ server {
 # save it
 # create symlink to enable the site
 sudo ln -s /etc/nginx/sites-available/example.conf /etc/nginx/sites-enabled/nginx-2420
+```
+# Restart nginx
+```bash
 sudo systemctl restart nginx
 # restart nginx to enable the changes to the site's configuration
+```
