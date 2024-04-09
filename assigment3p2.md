@@ -60,7 +60,9 @@ sftp -i ~/.ssh/do-key username@ip_address
 # Download the server file from your local machine to remote
 put hello-server
 # Create a bin directory in home and move the hello-server
-mv hello-server /usr/bin
+mv hello-server /usr/local/bin
+# Change permissions to executable
+sudo chmod +x hello-server
 ```
 ## Create the service file to run the backend
 ```bash
@@ -83,3 +85,5 @@ WantedBy=multi-user.target
 # Save and exit
 # Start the service
 sudo systemctl start backend-server.service
+# Check the service
+![alt text](image.png)
